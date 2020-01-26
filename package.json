@@ -1,0 +1,18 @@
+{
+  "name": "rpi-tapstack",
+  "version": "1.0.0",
+  "description": "Raspberry Pi + Relay shield + NFC shield + docker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "export LD_LIBRARY_PATH=/usr/local/lib && node index.js",
+    "build": "docker build -t vanhack/rpi-tapstack:${npm_package_version} -t vanhack/rpi-tapstack:latest .",
+    "push": "docker push vhs/rpi-tapstack"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-nfc-nci": "^1.0.6",
+    "onoff": "^5.0.0"
+  }
+}
