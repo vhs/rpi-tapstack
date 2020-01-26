@@ -90,9 +90,9 @@ nci.listen(context => {
       signal(relay.ch1, true, 3000);
       signal(relay.ch2, true, 200);
     } else {
-      await activate(relay.ch2, true, 100);
-      await activate(relay.ch2, false, 10);
-      await activate(relay.ch2, true, 100);
+      await signal(relay.ch2, true, 100);
+      await signal(relay.ch2, false, 10);
+      await signal(relay.ch2, true, 100);
     }
   });
   
