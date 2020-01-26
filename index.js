@@ -72,6 +72,8 @@ function signal(gpio, on = true, timeout) {
   });
 }
 
+console.log("initializing nci context...");
+
 nci.listen(context => {
   context.on("error", msg => console.error(msg));
   
@@ -93,4 +95,6 @@ nci.listen(context => {
       await activate(relay.ch2, true, 100);
     }
   });
+  
+  console.log("nci listening...");
 });
