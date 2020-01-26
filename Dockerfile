@@ -15,7 +15,7 @@ RUN git clone https://github.com/NXPNFCLinux/linux_libnfc-nci.git
 
 WORKDIR /usr/local/src/linux_libnfc-nci
 
-RUN ./bootstrap && ./configure --enable-i2c && make && make install
+RUN ./bootstrap && ./configure --enable-alt && make && make install
 
 RUN mkdir -p /var/run/rpi-tapstack
 
