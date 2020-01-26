@@ -11,7 +11,7 @@ const relay = {
   ch3: new Gpio(RELAY_CH3_PIN, "low", { activeLow: true })
 };
 
-function signal(gpio, on = true, timeout) {
+async function signal(gpio, on = true, timeout) {
   return new Promise(resolve => {
     gpio.writeSync(on ? 1 : 0);
   
