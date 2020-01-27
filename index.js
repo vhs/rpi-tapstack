@@ -15,9 +15,10 @@ function resolveApiKey() {
 
 const NOMOS_API_KEY = resolveApiKey();
 
-const RELAY_CH1_PIN = process.env.RELAY_CH1_PIN || 37;
-const RELAY_CH2_PIN = process.env.RELAY_CH2_PIN || 38;
-const RELAY_CH3_PIN = process.env.RELAY_CH3_PIN || 40;
+// BCM pins https://www.waveshare.com/wiki/RPi_Relay_Board
+const RELAY_CH1_PIN = process.env.RELAY_CH1_PIN || 26;
+const RELAY_CH2_PIN = process.env.RELAY_CH2_PIN || 20;
+const RELAY_CH3_PIN = process.env.RELAY_CH3_PIN || 21;
 
 if (!Gpio.accessible) {
   throw new Error("GPIO is not accessible");

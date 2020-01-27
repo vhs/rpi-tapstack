@@ -11,8 +11,10 @@ This is a docker image that with configuration will activate relays on successfu
 `npm run build` to build the docker image. `vanhack/rpi-tapstack`
 
 # Enviroment #
-`NOMOS_BASE_URI` - default https://membership.vanhack.ca/services/web
-`NOMOS_API_KEY_FILE` - API key with Check RFID privilege
-`RELAY_CH1_PIN` - GPIO pin for relay 1 default: 37
-`RELAY_CH2_PIN` - GPIO pin for relay 1 default: 38
-`RELAY_CH3_PIN` - GPIO pin for relay 1 default: 40
+- `NOMOS_BASE_URI` - default https://membership.vanhack.ca/services/web
+- `NOMOS_API_KEY_FILE` - API key with Check RFID privilege
+
+see https://www.waveshare.com/wiki/RPi_Relay_Board
+- `RELAY_CH1_PIN` - GPIO pin for relay 1 default: 26
+- `RELAY_CH2_PIN` - GPIO pin for relay 2 default: 20
+- `RELAY_CH3_PIN` - GPIO pin for relay 3 default: 21

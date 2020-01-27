@@ -1,6 +1,6 @@
 const Gpio = require("onoff").Gpio;
 
-const RELAY_CH3_PIN = process.env.RELAY_CH3_PIN || 40;
+const RELAY_CH3_PIN = process.env.RELAY_CH3_PIN || 21;
 
 if (!Gpio.accessible) {
   throw new Error("GPIO is not accessible");
