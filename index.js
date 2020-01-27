@@ -47,6 +47,10 @@ function checkRfid(id) {
         });
         
         resp.on("end", () => {
+          if (!data) {
+            resolve(false);
+          }
+
           const json = JSON.parse(data);
           
           resolve(json);
