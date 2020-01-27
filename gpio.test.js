@@ -26,6 +26,8 @@ async function signal(gpio, on = true, timeout) {
   });
 }
 
-await signal(relay.ch3, true, 100);
-await signal(relay.ch3, false, 10);
-await signal(relay.ch3, true, 100);
+(async () => {
+  await signal(relay.ch3, true, 100);
+  await signal(relay.ch3, false, 10);
+  await signal(relay.ch3, true, 100);
+})();
