@@ -21,9 +21,9 @@ nci.listen(context => {
       relays.ch1.signal(true, 3000);
       relays.ch2.signal(true, 200);
     } else {
-      await relay.ch2.signal(true, 100);
-      await relay.ch2.signal(false, 10);
-      await relay.ch2.signal(true, 100);
+      await relays.ch2.signal(true, 100);
+      await relays.ch2.signal(false, 10);
+      await relays.ch2.signal(true, 100);
     }
   });
   
