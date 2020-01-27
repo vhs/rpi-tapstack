@@ -51,6 +51,7 @@ function checkRfid(id) {
 
           if (resp.statusCode !== 200 || !data) {
             resolve(false);
+            return;
           }
 
           const json = JSON.parse(data);
