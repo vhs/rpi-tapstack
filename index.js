@@ -34,7 +34,7 @@ const relay = {
 };
 
 relay.ch1.writeSync(0);
-relay.ch2.writeSync(1);
+relay.ch2.writeSync(0);
 relay.ch3.writeSync(0);
 
 function checkRfid(id) {
