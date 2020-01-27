@@ -9,6 +9,6 @@ if (!Gpio.accessible) {
 
 module.exports = {
   ch1: new Pin(RELAY_CH1_PIN, "RELAY_CH1_PIN"),
-  ch2: new Pin(RELAY_CH2_PIN, "RELAY_CH1_PIN"),
-  ch3: new Pin(RELAY_CH3_PIN, "RELAY_CH1_PIN")
+  ch2: new Pin(RELAY_CH2_PIN, "RELAY_CH2_PIN"),
+  ch3: new Pin(RELAY_CH3_PIN, "RELAY_CH3_PIN")
 };
