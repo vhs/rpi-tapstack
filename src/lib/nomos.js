@@ -1,3 +1,4 @@
+const https = require("https");
 const { NOMOS_BASE_URI, NOMOS_API_KEY, REQUIRED_PRIVILEGES } = require("../config");
 const log = require("./log");
 
