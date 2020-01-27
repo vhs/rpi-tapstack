@@ -1,5 +1,6 @@
 const Gpio = require("onoff").Gpio;
 const Pin = require("./lib/pin");
+const { RELAY_CH1_PIN, RELAY_CH2_PIN, RELAY_CH3_PIN } = require("./config");
 
 if (!Gpio.accessible) {
   throw new Error("GPIO is not accessible");
