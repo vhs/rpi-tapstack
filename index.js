@@ -28,10 +28,14 @@ if (!Gpio.accessible) {
 }
 
 const relay = {
-  ch1: new Gpio(RELAY_CH1_PIN, "low", { activeLow: false }),
-  ch2: new Gpio(RELAY_CH2_PIN, "low", { activeLow: false }),
-  ch3: new Gpio(RELAY_CH3_PIN, "low", { activeLow: false })
+  ch1: new Gpio(RELAY_CH1_PIN, "low"),
+  ch2: new Gpio(RELAY_CH2_PIN, "low"),
+  ch3: new Gpio(RELAY_CH3_PIN, "low")
 };
+
+relay.ch1.writeSync(0);
+relay.ch2.writeSync(1);
+relay.ch3.writeSync(0);
 
 function checkRfid(id) {
   return new Promise((resolve, reject) => {
