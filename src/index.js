@@ -1,6 +1,5 @@
 const nci = require("node-nfc-nci");
 const log = require("./lib/log");
-const interval = require("./lib/interval");
 const relays = require("./relays");
 const { checkRfid } = require("./lib/nomos");
 
