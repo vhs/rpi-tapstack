@@ -3,6 +3,8 @@ const nci = require("node-nfc-nci");
 const https = require("https");
 const Gpio = require("onoff").Gpio;
 
+const REQUIRED_PRIVILEGES = (process.env.REQUIRED_PRIVILEGES || "").split(",").filter(p => p).map(p => p.trim());
+
 const NOMOS_BASE_URI = process.env.NOMOS_BASE_URI || "https://membership.vanhack.ca/services/web";
 
 function resolveApiKey() {
@@ -54,13 +56,55 @@ function checkRfid(id) {
             return;
           }
 
-          const json = JSON.parse(data);
+          let json = null;
           
-          resolve(json);
+          try {
+            json = JSON.parse(data);
+          } catch(e) {
+            console.log(e);
+            resolve(false);
+            return;
+          }
+          
+          if (!json) {
+            console.log("empty response");
+            resolve(false);
+            return;
+          }
+          
+          if (!json.valid) {
+            console.log("user invalid");
+            resolve(false);
+            return;
+          }
+          
+          if (REQUIRED_PRIVILEGES.length <= 0) {
+            console.log("user is valid but no required privileges");
+            resolve(false);
+            return;
+          }
+          
+          if (!json.privileges || json.privileges.length <= 0) {
+            console.log("user has no privileges");
+            resolve(false);
+            return;
+          }
+          
+          const hasAllRequiredPrivileges = REQUIRED_PRIVILEGES.every(code => json.privileges.some(privilege => privilege && privilege.code === code));
+          
+          if (!hasAllRequiredPrivileges) {
+            console.log("user is lacking required privileges");
+            resolve(false);
+            return;
+          }
+          
+          console.log("user has all required privileges");
+          resolve(true);
         });
       })
       .on("error", e => {
-        reject(e);
+        console.log(e);
+        resolve(false);
       });
   });
 }
