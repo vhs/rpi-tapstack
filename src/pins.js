@@ -1,3 +1,4 @@
+const Gpio = require("onoff").Gpio;
 const Pin = require("./lib/pin");
 
 if (!Gpio.accessible) {
