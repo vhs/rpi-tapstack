@@ -58,7 +58,7 @@ function checkRfid(id) {
   });
 }
 
-function signal(gpio, on = true, timeout) {
+async function signal(gpio, on = true, timeout) {
   return new Promise(resolve => {
     gpio.writeSync(on ? 1 : 0);
   
