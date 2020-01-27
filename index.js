@@ -47,7 +47,9 @@ function checkRfid(id) {
         });
         
         resp.on("end", () => {
-          if (!data) {
+          console.log(`GET ${url} ${resp.statusCode} ${data}`);
+
+          if (resp.statusCode !== 200 || !data) {
             resolve(false);
           }
 
