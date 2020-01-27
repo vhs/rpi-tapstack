@@ -24,15 +24,15 @@ const RESTING_CH2 = process.env.RESTING_CH2 || "off";
 const RESTING_CH3 = process.env.RESTING_CH3 || "off";
 
 const ON_ARRIVE_CH1 = process.env.ON_ARRIVE_CH1 || "off";
-const ON_ARRIVE_CH2 = process.env.ON_ARRIVE_CH2 || "on:200";
+const ON_ARRIVE_CH2 = process.env.ON_ARRIVE_CH2 || "off";
 const ON_ARRIVE_CH3 = process.env.ON_ARRIVE_CH3 || "off";
 
-const ON_ACCEPT_CH1 = process.env.ON_ACCEPT_CH1 || "on:3000";
-const ON_ACCEPT_CH2 = process.env.ON_ACCEPT_CH2 || "on:200";
+const ON_ACCEPT_CH1 = process.env.ON_ACCEPT_CH1 || "off";
+const ON_ACCEPT_CH2 = process.env.ON_ACCEPT_CH2 || "off";
 const ON_ACCEPT_CH3 = process.env.ON_ACCEPT_CH3 || "off";
 
 const ON_DENIED_CH1 = process.env.ON_DENIED_CH1 || "off";
-const ON_DENIED_CH2 = process.env.ON_DENIED_CH2 || "on:200,off:10,on:200";
+const ON_DENIED_CH2 = process.env.ON_DENIED_CH2 || "off";
 const ON_DENIED_CH3 = process.env.ON_DENIED_CH3 || "off";
 
 module.exports = {

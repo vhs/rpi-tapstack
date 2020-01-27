@@ -18,3 +18,38 @@ see https://www.waveshare.com/wiki/RPi_Relay_Board
 - `RELAY_CH1_PIN` - GPIO pin for relay 1 default: 26
 - `RELAY_CH2_PIN` - GPIO pin for relay 2 default: 20
 - `RELAY_CH3_PIN` - GPIO pin for relay 3 default: 21
+
+relay channel default resting states
+- `RESTING_CH1` - relay pin activation script string, default `off`
+- `RESTING_CH2` - relay pin activation script string, default `off`
+- `RESTING_CH3` - relay pin activation script string, default `off`
+
+tag `arrive` event
+- `ON_ARRIVE_CH1` - relay pin activation script string, default `off`
+- `ON_ARRIVE_CH2` - relay pin activation script string, default `off`
+- `ON_ARRIVE_CH3` - relay pin activation script string, default `off`
+
+tag `accept` event
+- `ON_ACCEPT_CH1` - relay pin activation script string, default `off`
+- `ON_ACCEPT_CH2` - relay pin activation script string, default `off`
+- `ON_ACCEPT_CH3` - relay pin activation script string, default `off`
+
+tag `denied` event
+- `ON_DENIED_CH1` - relay pin activation script string, default `off`
+- `ON_DENIED_CH2` - relay pin activation script string, default `off`
+- `ON_DENIED_CH3` - relay pin activation script string, default `off`
+
+relay pin activation scripts:
+`on|off[:duration[:on|off]][,...]`
+
+- `off` - will set to off state
+- `on` - will set to on state
+- `on:200` - will set on to 200 milliseconds then return to resting state
+- `on:200:off` - will set to on for 200 milliseconds then return to defined resting state of off
+- `on:200,off:10,on:200` - on for 200 milliseconds then off for 10 milliseconds then on for 200 milliseconds
+
+example:
+- let default pin resting = on
+- arrive event `off` - on a tag arrival set state to off, without a duration it will stay at state indefinitely
+- denied event `on:200:off` - will set on for 200 milliseconds then return to defined resting of off
+- accept event `on:200` - will set on for 200 milliseconds then return to default resting of on
