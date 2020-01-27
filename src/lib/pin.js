@@ -28,37 +28,30 @@ class Pin {
     log.info(`PIN ${this.name}:${this.id} ${v}`);
   }
 
-  off() {
-    if (self.timer) {
-      clearTimeout(self.timer);
-      self.timer = null;
+  clear() {
+    if (this.timer) {
+      clearTimeout(this.timer);
+      this.timer = null;
     }
+  }
 
-    this._state = OFF;
-    this.gpio.writeSync(OFF);
+  off() {
+    this.clear();
+    this.state = OFF;
   }
 
   on() {
-    if (self.timer) {
-      clearTimeout(self.timer);
-      self.timer = null;
-    }
-
-    this._state = ON;
-    this.gpio.writeSync(OFF);
+    this.clear();
+    this.state = ON;
   }
 
   async signal(on = true, timeout) {
-    const self = this;
-
-    self.state = on;
+    this.state = on;
 
     if (timeout) {
-      if (self.timer) {
-        clearTimeout(self.timer);
-        self.timer = null;
-      }
+      this.clear();
 
+      const self = this;
       await new Promise(resolve => {
         self.timer = setTimeout(() => {
           self.state = !on;
