@@ -6,10 +6,10 @@ const NOMOS_BASE_URI = process.env.NOMOS_BASE_URI || "https://membership.vanhack
 
 function resolveApiKey() {
   if (process.env.NOMOS_API_KEY_FILE) {
-    return fs.readFileSync(process.env.NOMOS_API_KEY_FILE);
+    return fs.readFileSync(process.env.NOMOS_API_KEY_FILE).trim();
   }
 
-  return process.env.NOMOS_API_KEY || "";
+  return (process.env.NOMOS_API_KEY || "").trim();
 }
 
 const NOMOS_API_KEY = resolveApiKey();
