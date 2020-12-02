@@ -9,7 +9,7 @@ function resolveApiKey() {
     return fs.readFileSync(process.env.NOMOS_API_KEY_FILE).trim();
   }
 
-  return process.env.NOMOS_API_KEY.trim() || "";
+  return (process.env.NOMOS_API_KEY || "").trim();
 }
 
 const NOMOS_API_KEY = resolveApiKey();
