@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TEMPLATE=vanhack/rpi-tapstack:test
+TEMPLATE=vanhack/rpi-tapstack:buildx-test
 
 if [ -f .build.env ]; then
         . .build.env
@@ -14,4 +14,4 @@ else
         docker buildx use xbuilder
 fi
 
-docker buildx build --platform linux/arm/v7 -t $TEMPLATE --load .
+docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6 -t $TEMPLATE --push .
