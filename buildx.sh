@@ -14,4 +14,4 @@ else
         docker buildx use xbuilder
 fi
 
-docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6 -t $TEMPLATE --push .
+docker buildx build --platform linux/arm64,linux/arm/v7,linux/arm/v6 -t $TEMPLATE --push .
