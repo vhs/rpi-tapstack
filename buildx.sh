@@ -9,7 +9,6 @@ fi
 jq '. += {"experimental": "enabled"}' ~/.docker/config.json >~/.docker/config.json.tmp
 cat ~/.docker/config.json.tmp >~/.docker/config.json
 rm ~/.docker/config.json.tmp
-cat ~/.docker/config.json
 
 XBUILDER=$(docker buildx ls | egrep xbuilder)
 
