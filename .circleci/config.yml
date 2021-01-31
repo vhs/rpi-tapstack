@@ -19,4 +19,4 @@ jobs:
       - run:
           name: BuildX from dockerfile
           command: |
-            ./buildx.sh $DOCKER_TEMPLATE
+            ./buildx.sh ${DOCKER_TEMPLATE}:${CIRCLE_BRANCH}
