@@ -1,7 +1,9 @@
 #!/bin/bash
 
+TEMPLATE=$1
+
 if [ "${TEMPLATE}" = "" ] ; then
-	TEMPLATE=vanhack/rpi-tapstack:buildx
+	TEMPLATE=vanhack/rpi-tapstack:buildx-test
 fi
 
 
