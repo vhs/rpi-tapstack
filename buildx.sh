@@ -1,6 +1,9 @@
 #!/bin/bash
 
-TEMPLATE=vanhack/rpi-tapstack:buildx-test
+if [ "${TEMPLATE}" = "" ] ; then
+	TEMPLATE=vanhack/rpi-tapstack:buildx
+fi
+
 
 if [ -f .build.env ]; then
         . .build.env
